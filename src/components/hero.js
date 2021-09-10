@@ -7,7 +7,10 @@ export default ({ data }) => {
   useEffect(()=> {
     const t = setTimeout(()=>console.log("Date Time", new Date())
       , 1000);
-      return ()=>clearTimeout(t);
+      return ()=>{
+        console.log("Clear Timeout");
+        clearTimeout(t);
+      }
     }, []);
   return (
       <div className={styles.hero}>
