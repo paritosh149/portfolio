@@ -4,11 +4,6 @@ import Img from 'gatsby-image'
 import styles from './hero.module.css'
 
 export default ({ data }) => {
-  useEffect(()=> {
-    const t = setTimeout(()=>console.log("Date Time", new Date())
-      , 1000);
-      return ()=>clearTimeout(t);
-    }, []);
   return (
       <div className={styles.hero}>
         <Img
