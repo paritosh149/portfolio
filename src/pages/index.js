@@ -42,7 +42,7 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBanner(){
+    allContentfulBanner {
       edges {
         node {
           title
