@@ -1,7 +1,7 @@
 import React from "react";
 
-export default Banner = ({banner}) => {
+export default Banner = () => {
     return (
-        <div>{banner.title}</div>
+        <div>{"Banner placeholder"}</div>
     )
 }
