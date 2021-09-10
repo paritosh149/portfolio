@@ -1,17 +1,28 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Img from 'gatsby-image'
 
 import styles from './hero.module.css'
 
 export default ({ data }) => {
-  useEffect(()=> {
-    const t = setTimeout(()=>console.log("Date Time", new Date())
-      , 1000);
-      return ()=>{
-        console.log("Clear Timeout");
-        clearTimeout(t);
-      }
-    }, []);
+  const [count, setCount] = useState(0);
+  const savedCallback = useRef();
+  
+  function callback(){
+    console.log("In callback at ", new Date());
+    setCount(count + 1);
+  }
+  
+  useEffect(()=>{
+    savedCallback.current = callback;
+  });
+  
+  useEffect(()=>{
+  function tick(){
+    savedCallback.current();
+  }
+  let t = setInterval(tick, 1000);
+  return ()=>clearInterval(t)
+  }, []);
   return (
       <div className={styles.hero}>
         <Img
