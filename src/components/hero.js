@@ -21,7 +21,10 @@ export default ({ data }) => {
     savedCallback.current();
   }
   let t = setInterval(tick, 1000);
-  return ()=>clearInterval(t)
+  return ()=>{
+    console.log("Clear Interval at ", new Date());
+    clearInterval(t);}
+
   }, []);
   return (
       <div className={styles.hero}>
